@@ -11,11 +11,7 @@ GPIO.setup(27,GPIO.IN,GPIO.PUD_UP)
 def Toki_tomare():
     while GPIO.input(27) == GPIO.LOW :
         time.sleep(0.7)
-    return Toki_tomare
-
-def Toki_Ugokidasu():
-    while GPIO.input(27) == GPIO.HIGH :
-        return
+    return
     
 try: 
     out = GPIO.output 
@@ -31,6 +27,7 @@ try:
         time.sleep(0.7)
         Toki_tomare()
         out(17,GPIO.HIGH)
+        time.sleep(0.7)
         Toki_tomare()
         out(17,GPIO.LOW)
         time.sleep(0.7)
@@ -44,12 +41,9 @@ try:
         out(2,GPIO.LOW)
         Toki_tomare()
         time.sleep(0.7)
-        Toki_Ugokidasu()
         Toki_tomare()
-        if GPIO.input(27) == GPIO.HIGH:
-            Toki_Ugokidasu()
-        else:
-            Toki_tomare()
+        if GPIO.input(27) == GPIO.LOW:
+            Toki_Tomare()
 
 except KeyboardInterrupt:
     pass
